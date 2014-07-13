@@ -10,7 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+
 public class MainActivity extends Activity implements View.OnClickListener {
+
+   double firstValue = 0;
+   String operation = "+";
+   int chekDot = 0;
    TextView editText3;
    Button button0;
    Button button1;
@@ -78,25 +83,60 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
     public void onClick(View v) {
+
+
+
         switch (v.getId()) {
             case R.id.button0:
+                editText3.setText(editText3.getText() + "0");
+                break;
             case R.id.button1:
+                editText3.setText( editText3.getText()+"1");
+                break;
             case R.id.button2:
+                editText3.setText( editText3.getText()+"2");
+                break;
             case R.id.button3:
+                editText3.setText( editText3.getText()+"3");
+                break;
             case R.id.button4:
+                editText3.setText( editText3.getText()+"4");
+                break;
             case R.id.button5:
+                editText3.setText( editText3.getText()+"5");
+                break;
             case R.id.button6:
+                editText3.setText( editText3.getText()+"6");
+                break;
             case R.id.button7:
+                editText3.setText( editText3.getText()+"7");
+                break;
             case R.id.button8:
+                editText3.setText( editText3.getText()+"8");
+                break;
             case R.id.button9:
+                editText3.setText( editText3.getText()+"9");
+                break;
             case R.id.buttonClear:
+               /* String temp = editText3.getText();
+                editText3.setText(temp.substring(0,temp.length()-1));*/
+                break;
             case R.id.buttonDEL:
             case R.id.buttonDivide:
             case R.id.buttonDot:
+                if (chekDot == 0) {
+                    editText3.setText(editText3.getText() + ".");
+                    chekDot=1;
+                    break;
+                }
+                else{break;}
             case R.id.buttonEqual:
             case R.id.buttonMinus:
             case R.id.buttonMult:
             case R.id.buttonPlus:
+                /*firstValue = Double.valueOf(editText3.getText());
+                editText3.setText("");
+                operation = "+";*/
                 break;
 
         }
