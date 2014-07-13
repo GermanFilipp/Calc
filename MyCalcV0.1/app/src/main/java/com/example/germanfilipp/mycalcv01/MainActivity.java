@@ -13,8 +13,9 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-   double firstValue = 0;
-   String operation = "+";
+   Double firstValue ;
+   String text = " ";
+   String operation = "";
    int chekDot = 0;
    TextView editText3;
    Button button0;
@@ -122,7 +123,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 editText3.setText(temp.substring(0,temp.length()-1));*/
                 break;
             case R.id.buttonDEL:
+                break;
             case R.id.buttonDivide:
+                text = editText3.getText().toString();
+                firstValue =Double.parseDouble(text);
+                editText3.setText("");
+                operation = "/";
+                chekDot = 0;
+
+                break;
             case R.id.buttonDot:
                 if (chekDot == 0) {
                     editText3.setText(editText3.getText() + ".");
@@ -131,12 +140,48 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 }
                 else{break;}
             case R.id.buttonEqual:
+                text = editText3.getText().toString();
+                Double secondValue = Double.parseDouble(text);
+                if("+".equals(operation)){
+                    editText3.setText((firstValue+secondValue)+"");
+                }
+                if("-".equals(operation)){
+                    editText3.setText((firstValue-secondValue)+"");
+                }
+                if("*".equals(operation)){
+                    editText3.setText((firstValue*secondValue)+"");
+                }
+                if("/".equals(operation)){
+                    editText3.setText((firstValue/secondValue)+"");
+                }
+                firstValue = 0.0;
+                operation = "+";
+                chekDot = 0;
+
+        break;
             case R.id.buttonMinus:
-            case R.id.buttonMult:
-            case R.id.buttonPlus:
-                /*firstValue = Double.valueOf(editText3.getText());
+                text = editText3.getText().toString();
+                firstValue =Double.parseDouble(text);
                 editText3.setText("");
-                operation = "+";*/
+                operation = "-";
+                chekDot = 0;
+
+                break;
+            case R.id.buttonMult:
+                text = editText3.getText().toString();
+                firstValue =Double.parseDouble(text);
+                editText3.setText("");
+                operation = "-";
+                chekDot = 0;
+
+                break;
+            case R.id.buttonPlus:
+                text = editText3.getText().toString();
+                firstValue = Double.parseDouble(text);
+                editText3.setText("+");
+                operation = "+";
+                chekDot = 0;
+
                 break;
 
         }
