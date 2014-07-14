@@ -119,10 +119,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 editText3.setText( editText3.getText()+"9");
                 break;
             case R.id.buttonClear:
-               /* String temp = editText3.getText();
-                editText3.setText(temp.substring(0,temp.length()-1));*/
+                 String temp = editText3.getText().toString();
+                editText3.setText(temp.substring(0,temp.length()-1));
                 break;
             case R.id.buttonDEL:
+                editText3.setText("");
+                 firstValue= 0.0;
+                 text = " ";
+                 operation = "";
+                 chekDot = 0;
                 break;
             case R.id.buttonDivide:
                 text = editText3.getText().toString();
